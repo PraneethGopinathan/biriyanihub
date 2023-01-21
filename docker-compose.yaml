@@ -1,0 +1,11 @@
+version: "3"
+services: 
+  biriyanihub:
+    build: .
+    image: biriyanihub-c
+    container_name: "biriyanihub"
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app/
+    command: npm run dev

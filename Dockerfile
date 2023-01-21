@@ -9,7 +9,6 @@ COPY styles /app/styles
 COPY package.json /app/package.json
 COPY .eslintrc.json /app/.eslintrc.json
 COPY next.config.js /app/next.config.js
-COPY yarn.lock /app/yarn.lock
 
 RUN yarn
 CMD npm run dev

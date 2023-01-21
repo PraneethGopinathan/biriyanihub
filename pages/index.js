@@ -10,7 +10,7 @@ export default function Home() {
         </Head>
         {/* body */}
         <main>
-          <h1>Subscribe Zainkeepscode</h1>        
+          <h1>Subscribe Chathan</h1>        
         </main>
       </div>
   );
