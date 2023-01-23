@@ -47,8 +47,8 @@
 .imageContainer{
     width: 38rem;
     position: absolute;
-    top: 1rem;
-    left: 5rem;
+    top: -1rem;
+    left: -5rem;
 }
 
 .ContactUs{
@@ -59,7 +59,7 @@
     width: max-content;
     padding: 1rem;
     border-radius: 5rem;
-    top: 6rem;
+    top: -1rem;
     left: -6rem;
     gap: 1rem;
     background-color: white;
@@ -91,7 +91,7 @@
     border-radius: 0.5rem;
     position: absolute;
     bottom: 4rem;
-    left: 19rem;
+    left: 15rem;
     width: max-content;
 }
 
