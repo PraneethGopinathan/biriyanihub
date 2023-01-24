@@ -5,6 +5,8 @@ import css from '../../styles/Biryani.module.css'
 import LeftArrow from '../../assets/arrowLeft.png'
 import RightArrow from '../../assets/arrowRight.png'
 import { useState } from "react";
+import { useStore } from "../../store/store";
+import toast, {Toaster} from 'react-hot-toast'
 
 export default function Biryani({ biryani }) {
     const src = urlFor(biryani.image).url()
@@ -18,6 +20,13 @@ export default function Biryani({ biryani }) {
         : Quantity === 1
         ? null 
         : setQuantity((prev)=>prev-1)
+    }
+
+    //add to cart
+    const addBiryani = useStore((state)=> state.addBiryani)
+    const addToCart = () => {
+        addBiryani({...biryani, pirce: biryani.price[Size], quantity: Quantity, size: Size})
+        toast.success("Added to cart!")
     }
     return (
         <Layout>
@@ -51,10 +60,11 @@ export default function Biryani({ biryani }) {
                     </div>
 
                     {/* Button */}
-                    <div className={`btn ${css.btn}`}>
+                    <div className={`btn ${css.btn}`} onClick={addToCart}>
                         Add to Cart
                     </div>
                 </div>
+                    <Toaster/>
             </div>
         </Layout>
     )
