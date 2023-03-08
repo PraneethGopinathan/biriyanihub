@@ -13,7 +13,30 @@ export default function Cart() {
         removeBiryani(i);
         toast.error('Item Removed!')
     }
-    const total = ()=> CartData.biryanis.reduce((a,biryani)=>a+biryani.size === 0 ? biryani.price[0] * biryani.quantity: biryani.size === 1 ?  biryani.price[1] * biryani.quantity:  biryani.price[2] * biryani.quantity, 0)
+    // const total = ()=> CartData.biryanis.reduce((a,biryani)=> a+biryani.size === 0 ? biryani.price[0] * biryani.quantity: a+biryani.size === 1 ?  biryani.price[1] * biryani.quantity:  a+biryani.price[2] * biryani.quantity, 0)
+    const total = () => {
+        let sum = 0;
+        CartData.biryanis.forEach((biryani) => {
+          let price;
+          switch (biryani.size) {
+            case 0:
+              price = biryani.price[0];
+              break;
+            case 1:
+              price = biryani.price[1];
+              break;
+            case 2:
+              price = biryani.price[2];
+              break;
+            default:
+              price = 0;
+              break;
+          }
+          sum += price * biryani.quantity;
+        });
+        return sum;
+      };
+      
     return(
         <Layout>
             <div className={css.container}>
